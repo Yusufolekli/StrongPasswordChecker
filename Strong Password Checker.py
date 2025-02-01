@@ -62,22 +62,20 @@ class PasswordStrengthGUI:
         self.master = master
         master.title("Şifre Gücü Denetleyicisi")
 
-        self.word_list = WordList("common_words.txt")  # Kelime listesi dosyası
+        self.word_list = WordList("common_words.txt")  
         self.checker = PasswordStrengthChecker(self.word_list)
 
         self.label = tk.Label(master, text="Şifre Girin:", font=('calibre', 12, 'bold'))
         self.label.pack()
 
-        # Password entry
+        
         self.password_entry = tk.Entry(master, show='*', width=30, font=('calibre', 12, 'normal'))
         self.password_entry.pack()
 
-        # Show password checkbox
         self.show_password_var = tk.BooleanVar()
         self.show_password_checkbox = tk.Checkbutton(master, text="Şifreyi Göster", variable=self.show_password_var, command=self.toggle_password_visibility, font=('calibre', 12))
         self.show_password_checkbox.pack()
 
-        # Check and generate buttons
         self.check_button = tk.Button(master, text="Şifreyi Kontrol Et", command=self.check_password, font=('calibre', 12))
         self.check_button.pack()
 
@@ -89,9 +87,9 @@ class PasswordStrengthGUI:
 
     def toggle_password_visibility(self):
         if self.show_password_var.get():
-            self.password_entry.config(show='')  # Show password
+            self.password_entry.config(show='')  
         else:
-            self.password_entry.config(show='*')  # Hide password
+            self.password_entry.config(show='*')  
 
     def check_password(self):
         password = self.password_entry.get()
